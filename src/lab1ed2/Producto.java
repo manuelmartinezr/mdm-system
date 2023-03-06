@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 package lab1ed2;
-import java.util.Stack;
 
 /**
  *
  * @author manuel
  */
-public class Main {
+public class Producto {
+    private String id, idCat, nombre, cortaDesc, largaDesc, imgPath;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
+    public String getIdCat() {
+        return idCat;
     }
-    
+
+    public void setIdCat(String idCat) {
+        this.idCat = idCat;
+    }
     
 }

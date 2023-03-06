@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class NodoCat {
     
-    private String id;
-    private String nombre;
+    private String id ="";
+    private String nombre ="";
     private ArrayList<NodoCat> hijos ;
 
     public NodoCat() {
