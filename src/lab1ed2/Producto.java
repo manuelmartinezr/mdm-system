@@ -9,15 +9,31 @@ package lab1ed2;
  *
  * @author manuel
  */
-public class Producto {
+public class Producto extends Item {
     private String id, idCat, nombre, cortaDesc, largaDesc, imgPath;
 
-    public String getIdCat() {
-        return idCat;
+    public String getCortaDesc() {
+        return cortaDesc;
     }
 
-    public void setIdCat(String idCat) {
-        this.idCat = idCat;
+    public void setCortaDesc(String cortaDesc) {
+        this.cortaDesc = cortaDesc;
+    }
+
+    public String getLargaDesc() {
+        return largaDesc;
+    }
+
+    public void setLargaDesc(String largaDesc) {
+        this.largaDesc = largaDesc;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
     
 }
