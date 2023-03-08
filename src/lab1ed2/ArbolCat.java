@@ -36,7 +36,7 @@ public class ArbolCat {
         }
         return r;
     }
-    
+    // se pide un padre al usuario
     public boolean insertar (NodoCat padre, NodoCat hijo)
     {   
         NodoCat r = null;
@@ -51,13 +51,16 @@ public class ArbolCat {
         return false;
     }
     
+    // Visualizar ruta de producto/cliente a partir de la categoría asociada
     public Stack getRuta(String idCat)
     {
+        // devuelve la ruta como tal (es una pila)
         Stack<NodoCat> ruta = new Stack<NodoCat>();
         if (tieneRuta(this.root, ruta, idCat)) return ruta;
         return null;
     }
     
+    //imprime la ruta 
     public Stack printRuta(String idCat)
     {
         Stack<NodoCat> ruta = new Stack<NodoCat>();
@@ -71,6 +74,7 @@ public class ArbolCat {
         return null;
     }
     
+    //algortimo q usa para encontrar la ruta
     private boolean tieneRuta(NodoCat root, Stack ruta, String idCat)
     {
         if (root == null) return false;

@@ -16,7 +16,7 @@ public class Item {
     public String getIdCat() {
         return idCat;
     }
-
+    // Asignar producto/cliente a la clasificación deseada
     public void setIdCat(String idCat) {
         this.idCat = idCat;
     }

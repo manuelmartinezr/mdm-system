@@ -17,7 +17,7 @@ public class Cliente extends Item {
     public String getApellido() {
         return apellido;
     }
-
+// setters - Editar un producto/cliente
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }

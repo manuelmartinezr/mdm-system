@@ -15,7 +15,7 @@ public class Producto extends Item {
     public String getCortaDesc() {
         return cortaDesc;
     }
-
+// setters - Editar un producto/cliente
     public void setCortaDesc(String cortaDesc) {
         this.cortaDesc = cortaDesc;
     }

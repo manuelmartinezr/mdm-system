@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author manuel
  */
 public class ListaItems {
+    // va a crear dos listas una para los productos y otra para los clientes
     private ArrayList<Item> lista;
     
     public ListaItems(){
@@ -20,6 +21,7 @@ public class ListaItems {
     
     public Item buscar(String id)
     {
+        // buscar producto o cliente
         for(Item item : lista)
         {
             if (item.getId().equals(id)) return item;
@@ -29,7 +31,8 @@ public class ListaItems {
     
     public void getItemsInCat(String idCat) //*****
     {
-        
+        // Dado un identificador de categoría de producto, indicar cuantos y cuales productos pertenecen a la misma
+        // este indica cuales
         for(Item item : lista)
         {
             if (item.getIdCat().equals(idCat))
@@ -41,6 +44,8 @@ public class ListaItems {
     
     public int countItemsInCat(String idCat) //** tal vez crear funcion que llame a esta y la de arriba
     {
+        // Dado un identificador de categoría de producto, indicar cuantos y cuales productos pertenecen a la misma
+        // este indica cuantos
         int a = 0;
         for(Item item : lista)
         {
@@ -49,11 +54,15 @@ public class ListaItems {
         return a;
     }
     
+    // añadir un cliente a la lista de clientes 
+    // añadir un producto a la lista de productos
+    
     public boolean add(Item newItem)
     {
         for(Item item : lista)
         {
             if (newItem.getId().equals(item.getId())) return false;
+            // si un cliente/producto ya presente en la lista tiene el mismo ID no se debería dejar añadir
         }
         return true;
     }
