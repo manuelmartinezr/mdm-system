@@ -20,6 +20,10 @@ public class NodoCat {
     public NodoCat() {
         this.hijos = new ArrayList<NodoCat>();
     }
+    public NodoCat(String nombre){
+        this.hijos = new ArrayList<NodoCat>();
+        this.nombre = nombre;
+    }
 
     public String getId() {
         return id;
