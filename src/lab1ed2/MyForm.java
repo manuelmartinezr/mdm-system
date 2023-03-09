@@ -17,9 +17,15 @@ import java.awt.event.*;
 
 public class MyForm extends JFrame {
     private JPanel originalPanel;
+    NodoCat rootClientes;
+    NodoCat rootProductos;
 
-    public MyForm() {
+    public MyForm(NodoCat rootClientes, NodoCat rootProductos) {
+        
+        
         super("My Form");
+        this.rootClientes = rootClientes;
+        this.rootProductos = rootProductos;
         setSize(500, 500);
 
         originalPanel = new JPanel();
@@ -46,51 +52,59 @@ public class MyForm extends JFrame {
         add(originalPanel);
         setVisible(true);
     }
-
-    private void openFirstWindow() {
-        JFrame firstWindow = new JFrame("First Window");
-        firstWindow.setSize(300, 300);
-
-        JButton backButton = new JButton("Back to Original Window");
-        backButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                firstWindow.dispose();
-                setVisible(true);
-            }
-        });
-
-        JPanel firstWindowPanel = new JPanel();
-        firstWindowPanel.setLayout(new GridLayout(2, 1));
-        firstWindowPanel.add(new JLabel("This is the first new window."));
-        firstWindowPanel.add(backButton);
-
-        firstWindow.add(firstWindowPanel);
-        firstWindow.setVisible(true);
+    private void openFirstWindow()
+    {
+        JFrame frame = new JFrame("N-ary Tree");
+        frame.setSize(400, 400);
+        NaryTreePanel treePanel = new NaryTreePanel(rootClientes);
+        frame.add(treePanel);
+        // Set the size and visibility of the frame
+        frame.setSize(400, 400);
+        frame.setVisible(true);
     }
 
     private void openSecondWindow() {
-        JFrame secondWindow = new JFrame("Second Window");
-        secondWindow.setSize(300, 300);
-
-        JButton backButton = new JButton("Back to Original Window");
-        backButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                secondWindow.dispose();
-                setVisible(true);
-            }
-        });
-
-        JPanel secondWindowPanel = new JPanel();
-        secondWindowPanel.setLayout(new GridLayout(2, 1));
-        secondWindowPanel.add(new JLabel("This is the second new window."));
-        secondWindowPanel.add(backButton);
-
-        secondWindow.add(secondWindowPanel);
-        secondWindow.setVisible(true);
+        JFrame frame = new JFrame("N-ary Tree");
+        frame.setSize(400, 400);
+        NaryTreePanel treePanel = new NaryTreePanel(rootProductos);
+        frame.add(treePanel);
+        // Set the size and visibility of the frame
+        frame.setSize(400, 400);
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        new MyForm();
+        NodoCat rootC = new NodoCat("A");
+        NodoCat b = new NodoCat("B");
+        NodoCat c = new NodoCat("C");
+        NodoCat d = new NodoCat("D");
+        NodoCat e = new NodoCat("E");
+        NodoCat f = new NodoCat("F");
+        NodoCat g = new NodoCat("G");
+        
+            // Add children to node B
+    rootC.addHijo(b);
+    b.addHijo(e);
+    b.addHijo(f);
+
+    // Add children to node C
+    c.addHijo(g);
+
+    // Add children to node D
+
+    NodoCat rootP = new NodoCat("P");
+        NodoCat bb = new NodoCat("R");
+        NodoCat cc = new NodoCat("O");
+        NodoCat dd = new NodoCat("D");
+        NodoCat ee = new NodoCat("U");
+        NodoCat ff = new NodoCat("F");
+        NodoCat gg = new NodoCat("G");
+        
+        rootP.addHijo(bb);
+        bb.addHijo(ee);
+        bb.addHijo(ff);
+    // Create a JFrame and add the tree panel to it
+    new MyForm(rootC, rootP);
     }
 }
 
