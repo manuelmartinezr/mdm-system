@@ -59,11 +59,14 @@ public class ListaItems {
     
     public boolean add(Item newItem)
     {
-        for(Item item : lista)
-        {
+        if (!lista.isEmpty()){
+         for(Item item : lista)
+            {
             if (newItem.getId().equals(item.getId())) return false;
             // si un cliente/producto ya presente en la lista tiene el mismo ID no se debería dejar añadir
+            }
         }
+        lista.add(newItem);
         return true;
     }
 }

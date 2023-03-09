@@ -22,6 +22,7 @@ public class NaryTreePanel extends JPanel {
     private NodoCat root;
 
     public NaryTreePanel(NodoCat root) {
+        ArbolCat tree = new ArbolCat(root);
         this.root = root;
         JButton addNodeButton = new JButton("Add Node");
         addNodeButton.addActionListener(new ActionListener() {
@@ -31,15 +32,40 @@ public class NaryTreePanel extends JPanel {
                 String newNodeName = JOptionPane.showInputDialog("Enter the name of the new node:");
                 String newNodeId = JOptionPane.showInputDialog("Enter an ID for the new node:");
 
-                // TODO: Add code to find the parent node in the tree and add the new node as its child
-                // For now, just print out the values entered by the user
-                System.out.println("Parent name: " + parentName);
-                System.out.println("New node name: " + newNodeName);
-                System.out.println("New node ID: " + newNodeId);
+                NodoCat padre = tree.buscar(root, parentName);
+                
+                if (padre!= null)
+                {
+                    NodoCat newNode = new NodoCat();
+                    newNode.setNombre(newNodeName);
+                    newNode.setId(newNodeId);
+                    tree.insertar(padre, newNode);
+                }
+            }
+        });
+        JButton getRutaButton = new JButton("Ruta de categoría");
+        getRutaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nodeRuta = JOptionPane.showInputDialog("Inserta el nombre del nodo");
+                
+                NodoCat r = tree.buscar(root, nodeRuta);
+                if (r==null)
+                {
+                    JOptionPane.showMessageDialog(null, "Nombre no encontrado");
+                }else{
+                    JOptionPane.showMessageDialog(null, tree.printRuta(nodeRuta));
+                };
+                
+                
             }
         });
 
         // Add the button to the panel
+        setLayout(null);
+        addNodeButton.setBounds(300, 300, 100, 40);
+        getRutaButton.setBounds(300, 200, 100, 40);
+        add(getRutaButton);
         add(addNodeButton);
     }
 
@@ -111,15 +137,12 @@ public class NaryTreePanel extends JPanel {
         NodoCat e = new NodoCat("E");
         NodoCat f = new NodoCat("F");
         NodoCat g = new NodoCat("G");
-            // Add children to node B
+        
     root.addHijo(b);
     b.addHijo(e);
     b.addHijo(f);
 
-    // Add children to node C
     c.addHijo(g);
-
-    // Add children to node D
 
 
     // Create a JFrame and add the tree panel to it

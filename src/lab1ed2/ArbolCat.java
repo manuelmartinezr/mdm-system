@@ -61,17 +61,18 @@ public class ArbolCat {
     }
     
     //imprime la ruta 
-    public Stack printRuta(String idCat)
+    public String printRuta(String idCat)
     {
-        Stack<NodoCat> ruta = new Stack<NodoCat>();
-        if (tieneRuta(this.root, ruta, idCat))
+        Stack<NodoCat> ruta = getRuta(idCat);
+        String writtenRuta = "";
+        if (ruta!= null)
         {
             for (NodoCat nodo : ruta)
-        {
-            System.out.println(nodo.getNombre());
+            {
+                writtenRuta = writtenRuta + "->" + nodo.getNombre();
+            }
         }
-        }
-        return null;
+        return writtenRuta;
     }
     
     //algortimo q usa para encontrar la ruta
@@ -81,7 +82,7 @@ public class ArbolCat {
         
         ruta.push(root);
         
-        if (root.getId().equals(idCat)) return true;
+        if (root.getNombre().equals(idCat)) return true;
         
         for (NodoCat hijo : root.getHijos())
         {    
