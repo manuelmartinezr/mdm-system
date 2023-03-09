@@ -165,7 +165,7 @@ public class MyForm extends JFrame {
             for (int i = 0; i < 4; i++) {
                 booleanInputs[i] = booleanBoxes[i].isSelected();
             }
-            Cliente newCliente = new Cliente();
+//            Cliente newCliente = new Cliente();
 //            newCliente.setId(stringInputs[0]);
 //            newCliente.setIdCat(stringInputs[1]);
 //            newCliente.setNombre(stringInputs[2]);
@@ -184,7 +184,7 @@ public class MyForm extends JFrame {
 //            newCliente.setContactoTel(booleanInputs[1]);
 //            newCliente.setContactoSMS(booleanInputs[2]);
 //            newCliente.setContactoCorreo(booleanInputs[3]);
-            listaClientes.add(newCliente);
+//            listaClientes.add(newCliente);
             inputFrame.dispose();
         });
         inputFrame.add(acceptButton);
