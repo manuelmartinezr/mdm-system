@@ -12,6 +12,8 @@ package lab1ed2;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class NaryTreePanel extends JPanel {
 
@@ -21,10 +23,29 @@ public class NaryTreePanel extends JPanel {
 
     public NaryTreePanel(NodoCat root) {
         this.root = root;
+        JButton addNodeButton = new JButton("Add Node");
+        addNodeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String parentName = JOptionPane.showInputDialog("Enter the name of the parent node:");
+                String newNodeName = JOptionPane.showInputDialog("Enter the name of the new node:");
+                String newNodeId = JOptionPane.showInputDialog("Enter an ID for the new node:");
+
+                // TODO: Add code to find the parent node in the tree and add the new node as its child
+                // For now, just print out the values entered by the user
+                System.out.println("Parent name: " + parentName);
+                System.out.println("New node name: " + newNodeName);
+                System.out.println("New node ID: " + newNodeId);
+            }
+        });
+
+        // Add the button to the panel
+        add(addNodeButton);
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
+
+@Override
+        public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (root == null) {
             return;
